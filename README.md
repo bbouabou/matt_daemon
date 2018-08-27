@@ -14,10 +14,10 @@ Lance le bin ./a.out
 Done :
 - TintinReporter : Log fichier avec timestamp
 - init et ecoute sur port
+- fichier lock : flock()
 
 Todo :
 - Makefile & forme canonique
-- gestion de plusieurs clients : fork()
+- gestion de plusieurs clients
 - gestion des signaux
-- fichier lock : flock()
 - tourne en tache de fond ?
