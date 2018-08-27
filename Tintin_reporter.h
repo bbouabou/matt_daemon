@@ -7,9 +7,6 @@
 #include <time.h>
 #include <string>
 
-#define LOG_FILE "/var/log/matt_daemon/matt_daemon.log"
-#define LOG_PATH "/var/log/matt_daemon/"
-
 class Tintin_reporter
 {
 

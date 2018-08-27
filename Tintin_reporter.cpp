@@ -1,4 +1,5 @@
 #include "Tintin_reporter.h"
+#include "matt_daemon.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 
@@ -19,9 +20,8 @@ void Tintin_reporter::record(std::string const &message, std::string const &type
 
     std::cout << outputStr.c_str() << std::endl;
 
-#ifdef unix
+    //Lets check if folders LOG PATH are there
     struct stat info;
-
     if( stat( LOG_PATH, &info ) != 0 )
     {
         std::string mkDirStr = "mkdir -p " LOG_PATH;
@@ -33,6 +33,5 @@ void Tintin_reporter::record(std::string const &message, std::string const &type
     {
         outfile << outputStr.c_str() << std::endl;
     }
-#endif
 
 }

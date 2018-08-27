@@ -8,8 +8,10 @@ int main()
 {
     CDaemon daemon;
 
-    daemon.startServer();
-    daemon.run();
-
+    if (daemon.init())
+    {
+        daemon.startServer();
+        daemon.run();
+    }
     return 0;
 }

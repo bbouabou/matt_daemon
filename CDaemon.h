@@ -1,17 +1,14 @@
 #ifndef CDAEMON_H
 #define CDAEMON_H
 
-#ifdef unix
-    #include <sys/types.h>
-    #include <sys/socket.h>
-    #include <netinet/in.h>
-    #include <arpa/inet.h>
-    #include <unistd.h>
-    #include <stdio.h>
-    #include <stdlib.h>
-#endif
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-#define MAX_NB_CLIENT 3
 #define INVALID_SOCKET -1
 #define SOCKET_ERROR -1
 #define closesocket(s) close (s)
@@ -24,14 +21,15 @@ class CDaemon
 public:
     CDaemon();
 
-    void init();
+    bool init();
     void startServer();
     void stopServer();
     void run();
 
 private:
-    SOCKET _socket;
-    SOCKADDR_IN _sin;
+    SOCKET _serverSocket;
+    SOCKADDR_IN _serverSin;
+    int _lockFilefd;
 
 };
 

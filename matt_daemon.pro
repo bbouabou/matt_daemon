@@ -9,4 +9,5 @@ SOURCES += main.cpp \
 
 HEADERS += \
     Tintin_reporter.h \
-    CDaemon.h
+    CDaemon.h \
+    matt_daemon.h
