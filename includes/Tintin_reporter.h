@@ -1,5 +1,5 @@
 #ifndef TINTIN_REPORTER_H
-#define TINTIN_REPORTER_H
+# define TINTIN_REPORTER_H
 #include <iostream>
 #include <fstream>
 #include <istream>

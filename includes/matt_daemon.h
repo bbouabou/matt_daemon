@@ -1,5 +1,5 @@
 #ifndef MATT_DAEMON_H
-#define MATT_DAEMON_H
+# define MATT_DAEMON_H
 
 #define LOG_FILE "/var/log/matt_daemon/matt_daemon.log"
 #define LOG_PATH "/var/log/matt_daemon/"

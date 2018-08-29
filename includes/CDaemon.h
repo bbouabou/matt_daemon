@@ -1,5 +1,5 @@
 #ifndef CDAEMON_H
-#define CDAEMON_H
+# define CDAEMON_H
 
 #include <sys/types.h>
 #include <sys/socket.h>
