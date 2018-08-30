@@ -15,9 +15,9 @@ Done :
 - fichier lock : flock()
 - tourne en tache de fond 
 - Makefile
+- gestion de plusieurs clients
 
 Todo :
 - forme canonique
-- gestion de plusieurs clients
 - gestion des signaux
 

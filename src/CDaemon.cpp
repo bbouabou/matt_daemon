@@ -10,6 +10,7 @@
 #include <cstring>
 #include <thread>
 #include <algorithm>
+#include <signal.h>
 
 CDaemon::CDaemon()
 {
@@ -75,6 +76,9 @@ void CDaemon::startServer()
 
     if (SOCKET_ERROR == listen(_serverSocket, MAX_NB_CLIENT))
         Tintin_reporter::record("Error on listen", "ERROR");
+
+    for (int i = 1; i < _NSIG; i++)
+        signal(i, catchedSignal);
 }
 
 void CDaemon::stopServer()
@@ -163,4 +167,14 @@ void CDaemon::removeClient(int fd)
     _fds.erase(std::remove(_fds.begin(), _fds.end(), fd), _fds.end());
     decrementCounter();
     close(fd);
+}
+
+void CDaemon::catchedSignal(int signal)
+{
+
+
+    // todo : get all needed variable for stopserver. change them to static ?
+    // stopServer();
+    Tintin_reporter::record("signal: " + std::to_string(signal), "SIGNAL");
+    exit(signal);
 }

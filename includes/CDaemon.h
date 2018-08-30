@@ -31,6 +31,7 @@ public:
     void decrementCounter();
     void removeClient(int fd);
     static void startClient(int fd, CDaemon *daemon);
+    static void catchedSignal(int signal);
 
 private:
     SOCKET _serverSocket;
