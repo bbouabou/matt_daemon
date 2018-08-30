@@ -8,10 +8,13 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <vector>
 
 #define INVALID_SOCKET -1
 #define SOCKET_ERROR -1
 #define closesocket(s) close (s)
+#define BUFFER_SIZE 2048
+
 typedef int SOCKET;
 typedef struct sockaddr_in SOCKADDR_IN;
 typedef struct sockaddr SOCKADDR;
@@ -23,14 +26,18 @@ public:
 
     bool init();
     void startServer();
-    void stopServer();
     void run();
+    void stopServer();
+    void decrementCounter();
+    void removeClient(int fd);
+    static void startClient(int fd, CDaemon *daemon);
 
 private:
     SOCKET _serverSocket;
     SOCKADDR_IN _serverSin;
     int _lockFilefd;
-
+    int _countClient = 0;
+	std::vector<int> _fds;
 };
 
 #endif // CDAEMON_H

@@ -6,13 +6,13 @@
 #    By: bbouabou <bbouaboud@student.42.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/29 23:57:55 by bbouabou          #+#    #+#              #
-#    Updated: 2018/08/30 00:05:10 by bbouabou         ###   ########.fr        #
+#    Updated: 2018/08/30 23:21:22 by bbouabou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC			=	g++
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -pthread
 
 DOBJ		=	obj/
 
