@@ -14,6 +14,8 @@ public:
     Tintin_reporter();
 
     static void record(std::string const &message, std::string const &type);
+    static std::string zeroPadNumber(int nb);
+
 };
 
 #endif // TINTIN_REPORTER_H

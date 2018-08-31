@@ -16,8 +16,8 @@ Done :
 - tourne en tache de fond 
 - Makefile
 - gestion de plusieurs clients
+- gestion des signaux
 
 Todo :
 - forme canonique
-- gestion des signaux
 

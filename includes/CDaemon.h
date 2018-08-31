@@ -9,10 +9,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
+#include <string>
 
 #define INVALID_SOCKET -1
 #define SOCKET_ERROR -1
-#define closesocket(s) close (s)
 #define BUFFER_SIZE 2048
 
 typedef int SOCKET;
@@ -22,10 +22,12 @@ typedef struct sockaddr SOCKADDR;
 class CDaemon
 {
 public:
-    CDaemon();
 
+    static CDaemon *instance();
+
+    virtual ~CDaemon();
     bool init();
-    void startServer();
+    bool startServer();
     void run();
     void stopServer();
     void decrementCounter();
@@ -39,6 +41,8 @@ private:
     int _lockFilefd;
     int _countClient = 0;
 	std::vector<int> _fds;
+    static CDaemon* _singleton;
+    CDaemon();
 };
 
 #endif // CDAEMON_H

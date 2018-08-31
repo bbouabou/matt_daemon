@@ -1,6 +1,6 @@
 FROM debian:latest
 
-RUN apt-get update && apt-get install -y g++ make vim
+RUN apt-get update && apt-get install -y g++ make vim netcat procps
 
 RUN mkdir /matt_daemon
 

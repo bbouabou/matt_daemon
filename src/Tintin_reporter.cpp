@@ -2,6 +2,9 @@
 #include "matt_daemon.h"
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <iomanip> 
+#include <sstream> 
+#include <string>
 
 Tintin_reporter::Tintin_reporter()
 {
@@ -13,12 +16,13 @@ void Tintin_reporter::record(std::string const &message, std::string const &type
     time_t t = time(NULL);
     tm* timePtr = localtime(&t);
 
-    std::string outputStr = "[" + std::to_string(timePtr->tm_mday) + "/" + std::to_string((timePtr->tm_mon)+1) + "/" + std::to_string((timePtr->tm_year)+1900)
-              + "-" + std::to_string(timePtr->tm_hour) + ":" + std::to_string(timePtr->tm_min) + ":" + std::to_string(timePtr->tm_sec) + "] "
+    std::string outputStr = "[" + zeroPadNumber(timePtr->tm_mday) + "/" + zeroPadNumber((timePtr->tm_mon)+1) + "/" + zeroPadNumber((timePtr->tm_year)+1900)
+              + "-" + zeroPadNumber(timePtr->tm_hour) + ":" + zeroPadNumber(timePtr->tm_min) + ":" + zeroPadNumber(timePtr->tm_sec) + "] "
               + "[" + type + "] - "
               + message;
 
-    // std::cout << outputStr.c_str() << std::endl;
+    //May comment
+    std::cout << outputStr.c_str() << std::endl;
 
     //Lets check if folders LOG PATH are there
     struct stat info;
@@ -34,4 +38,11 @@ void Tintin_reporter::record(std::string const &message, std::string const &type
         outfile << outputStr.c_str() << std::endl;
     }
 
+}
+
+std::string Tintin_reporter::zeroPadNumber(int num)
+{
+    std::ostringstream ss;
+    ss << std::setw(2) << std::setfill( '0' ) << num;
+    return ss.str();
 }

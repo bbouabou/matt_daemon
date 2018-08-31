@@ -12,7 +12,7 @@
 
 CC			=	g++
 
-CFLAGS		=	-Wall -Wextra -Werror -pthread
+CFLAGS		=	-Wall -Wextra -Werror -pthread -std=c++11
 
 DOBJ		=	obj/
 
